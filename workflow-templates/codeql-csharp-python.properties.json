@@ -1,0 +1,6 @@
+{
+  "name": "CodeQL scanning (C# + Python)",
+  "description": "Static analysis for C# and Python using CodeQL.",
+  "iconName": "security",
+  "categories": ["Security", "Code Scanning"]
+}
