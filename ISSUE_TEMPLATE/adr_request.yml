@@ -1,0 +1,66 @@
+name: "🏛️ Architecture / ADR request"
+description: "Request an architecture decision or record a decision (ADR)."
+title: "[ADR]: "
+labels: ["architecture", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this when a decision affects architecture, security, cost, reliability, or cross-team dependencies.
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: What situation/problem is forcing a decision?
+      placeholder: "Background, constraints, drivers..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: decision
+    attributes:
+      label: Proposed decision
+      description: What are we proposing to decide?
+      placeholder: "Decision statement..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: options
+    attributes:
+      label: Options considered
+      placeholder: |
+        Option A:
+        Option B:
+        Option C:
+    validations:
+      required: true
+
+  - type: textarea
+    id: consequences
+    attributes:
+      label: Consequences / trade-offs
+      description: Impact on cost, performance, security, operability, timelines.
+      placeholder: "Pros/cons, risks, mitigations..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact level
+      options:
+        - "High (cross-team / major platform impact)"
+        - "Medium (team-level architecture impact)"
+        - "Low (local refactor / minor pattern change)"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: This decision may require additional review (Security, Platform, Architecture Council).
+          required: false
