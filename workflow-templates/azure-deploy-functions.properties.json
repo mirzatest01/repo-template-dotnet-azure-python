@@ -1,0 +1,5 @@
+{
+  "name": "Azure Deploy - Functions (OIDC)",
+  "description": "Deploy to Azure Functions using OIDC. Requires org/repo Variables for AZURE_CLIENT_ID/TENANT_ID/SUBSCRIPTION_ID.",
+  "categories": ["Deployments", "Azure"]
+}
