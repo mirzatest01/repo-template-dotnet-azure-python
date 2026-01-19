@@ -1,0 +1,93 @@
+name: "🐞 Bug report"
+description: "Report something that is broken or not working as expected."
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please provide enough detail to reproduce the issue.
+        **Do not include secrets, credentials, private keys, or customer PII**.
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How impactful is this issue?
+      options:
+        - "S1 - Critical (production down / security impact)"
+        - "S2 - High (major functionality broken)"
+        - "S3 - Medium (workaround exists)"
+        - "S4 - Low (minor issue)"
+    validations:
+      required: true
+
+  - type: input
+    id: affected_version
+    attributes:
+      label: Affected version / commit
+      description: Release version, tag, or commit SHA where you observed the bug.
+      placeholder: "e.g., v2.3.1 or 1a2b3c4"
+    validations:
+      required: false
+
+  - type: textarea
+    id: what_happened
+    attributes:
+      label: What happened?
+      description: Describe the behavior you observed.
+      placeholder: "Observed behavior..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+      placeholder: "Expected behavior..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Provide clear steps so we can reproduce reliably.
+      placeholder: |
+        1. Go to...
+        2. Click...
+        3. See error...
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs / screenshots (redact sensitive info)
+      description: Paste relevant logs (redact secrets) or attach screenshots.
+      render: shell
+    validations:
+      required: false
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      options:
+        - "Production"
+        - "Staging / UAT"
+        - "Dev / Test"
+        - "Local"
+        - "Other"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have searched existing issues to avoid duplicates.
+          required: true
+        - label: I have not included secrets, credentials, or sensitive data.
+          required: true
