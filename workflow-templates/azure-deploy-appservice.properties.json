@@ -1,0 +1,5 @@
+{
+  "name": "Azure Deploy - App Service (OIDC)",
+  "description": "Deploy to Azure App Service using OpenID Connect (no stored secrets). Requires org/repo Variables for AZURE_CLIENT_ID/TENANT_ID/SUBSCRIPTION_ID.",
+  "categories": ["Deployments", "Azure"]
+}
