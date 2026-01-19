@@ -1,3 +1,8 @@
+> **Policy Version:** v1.0  
+> **Effective Date:** 2026-01-19  
+> **Applies To:** All repositories in the organization unless explicitly overridden  
+> **Owner:** Engineering Enablement / Platform Team
+
 # Support
 
 Thanks for using and contributing to our repositories.
