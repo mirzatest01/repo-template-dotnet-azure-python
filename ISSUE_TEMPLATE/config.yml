@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability reporting
+    url: https://github.com/<ORG>/.github/security/policy
+    about: Please report security vulnerabilities privately per SECURITY.md (do not file public issues).
+  - name: Support / Help
+    url: https://github.com/<ORG>/.github/blob/main/SUPPORT.md
+    about: Read support expectations and routes before opening an issue.
+  - name: Contributing guidelines
+    url: https://github.com/<ORG>/.github/blob/main/CONTRIBUTING.md
+    about: Learn how to contribute, PR expectations, and review process.
