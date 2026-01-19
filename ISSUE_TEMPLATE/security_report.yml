@@ -1,0 +1,51 @@
+name: "🔐 Security report / hardening task"
+description: "Report a potential security concern (non-sensitive) or request security hardening work."
+title: "[Security]: "
+labels: ["security", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ⚠️ **Do NOT disclose exploitable vulnerabilities here.**
+        If this is a real vulnerability or includes sensitive details, follow **SECURITY.md** to report privately.
+
+  - type: checkboxes
+    id: gate
+    attributes:
+      label: Safety check
+      options:
+        - label: This issue does not include exploit details, secrets, or sensitive customer/system information.
+          required: true
+        - label: I have read SECURITY.md and understand how to report a vulnerability privately.
+          required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - "Hardening / best practice"
+        - "Potential vulnerability (non-sensitive)"
+        - "Dependency / CVE remediation"
+        - "Security tooling / scanning"
+        - "Access control / permissions"
+        - "Other"
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Describe the concern or hardening request. Keep it non-sensitive.
+      placeholder: "What did you observe, where, and what’s the risk?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: recommendation
+    attributes:
+      label: Suggested mitigation
+      placeholder: "Proposed fix / mitigation..."
+    validations:
+      required: false
