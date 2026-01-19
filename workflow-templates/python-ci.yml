@@ -1,0 +1,37 @@
+name: Python CI
+
+on:
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements-dev.txt ]; then pip install -r requirements-dev.txt; fi
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          if [ -f pyproject.toml ]; then pip install -e .; fi
+
+      - name: Lint (ruff if installed)
+        run: |
+          if python -c "import ruff" 2>/dev/null; then ruff check .; else echo "ruff not installed"; fi
+
+      - name: Test (pytest if installed)
+        run: |
+          if python -c "import pytest" 2>/dev/null; then pytest -q; else echo "pytest not installed"; fi
