@@ -1,49 +1,53 @@
-# Copilot Instructions (Repo-wide)
+# Repository Copilot Instructions
 
-## Project context
-- This repository contains: [describe briefly: API/worker/functions/data pipeline]
-- Primary languages: C#/.NET and Python
-- Cloud platform: Microsoft Azure
-- Priorities (in order): Security > Correctness > Maintainability > Performance
+## Mission
+Help implement changes safely and consistently for this repository.
+Priorities: Security > Correctness > Maintainability > Performance.
 
-## General coding standards
-- Prefer small, reviewable changes. Avoid mega-PRs.
-- Keep code readable; avoid cleverness.
-- Do not add new dependencies unless necessary. Explain why.
+## Repo context (fill in)
+- Product / domain: <one-liner>
+- Repo type: <API / Azure Functions / worker / data pipeline / library>
+- Main languages: C#/.NET, Python
+- Azure runtime: <App Service / Functions / AKS / Container Apps>
+- Data stores (if any): <Azure SQL/Cosmos/Storage/...>
+
+## How to work (behavior)
+- Make small, reviewable changes. Avoid large refactors unless requested.
+- Prefer editing existing patterns over introducing new patterns.
+- If unclear, make reasonable assumptions and state them in the PR description.
 - Never commit secrets, keys, tokens, or connection strings.
-- Avoid logging PII/credentials. Use structured logging and safe redaction.
+- Never log sensitive data (PII/PHI/secrets). Redact when sharing logs.
 
 ## .NET conventions
-- Target framework: [e.g., net8.0]
-- Use DI (Microsoft.Extensions.DependencyInjection) and config via appsettings + environment variables.
-- Prefer async/await for I/O.
-- Use nullable reference types; avoid null surprises.
-- Follow existing folder structure and naming patterns.
-- Validation: prefer explicit validation and clear errors.
+- Framework: <e.g., net8.0>
+- Use async/await for I/O.
+- Use dependency injection and configuration via appsettings + environment variables.
+- Follow existing naming and folder structure.
+- Add/adjust tests for behavior changes (use the repo’s test framework).
 
 ## Python conventions
-- Python version: [e.g., 3.11]
-- Prefer type hints for public functions/modules.
-- Keep functions small; avoid heavy classes unless needed.
-- Use pathlib, logging module, and explicit exception handling.
-- Follow repo linting/formatting config (black/ruff/flake8 if present).
+- Version: <e.g., 3.11>
+- Prefer type hints for public APIs.
+- Keep functions small and explicit; handle exceptions intentionally.
+- Follow repo lint/format rules (ruff/black/etc.) if present.
+- Add/adjust pytest tests for behavior changes.
 
-## Testing requirements
-- Any behavior change should include tests (or explain why not).
-- .NET: xUnit/NUnit/MSTest (use what repo uses); keep tests deterministic.
-- Python: pytest; prefer fixtures; avoid network calls in unit tests.
+## Local build & test commands (fill in)
+### .NET
+- Build: `dotnet build -c Release`
+- Test: `dotnet test -c Release`
+
+### Python
+- Install: `pip install -r requirements.txt` (or `pip install -e .`)
+- Test: `pytest -q`
 
 ## Azure guidance
-- Use Managed Identity where possible.
-- Configuration should come from env vars / Key Vault references; no embedded secrets.
-- If adding infra changes (Bicep/Terraform), keep them minimal and consistent.
+- Prefer Managed Identity for auth to Azure services.
+- Configuration should come from env vars / Key Vault references — never hardcode.
+- If you change infra (Bicep/Terraform), keep changes minimal and consistent.
 
-## When generating code
-- First, summarize the intended change and the files you plan to touch.
-- Ask clarifying questions only if blocked; otherwise make reasonable assumptions and note them.
-- Produce code that compiles/runs with the repo’s standard commands.
-- Include commands to run locally and in CI.
-
-## Prohibited output
-- Do not output or suggest real secrets.
-- Do not propose disabling security checks, tests, or code scanning to “make it work”.
+## Output expectations
+When you propose a solution:
+- Summarize what you changed and why
+- List commands to build/test
+- Note any risks + rollback strategy when relevant
