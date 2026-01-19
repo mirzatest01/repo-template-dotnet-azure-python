@@ -1,0 +1,5 @@
+{
+  "name": "Security - Dependency Review",
+  "description": "Flags risky dependency changes in pull requests.",
+  "categories": ["Security"]
+}
