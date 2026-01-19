@@ -1,0 +1,6 @@
+{
+  "name": "Python CI (Org Standard)",
+  "description": "Install deps, lint (ruff), and run tests (pytest).",
+  "iconName": "python",
+  "categories": ["CI", "Python"]
+}
