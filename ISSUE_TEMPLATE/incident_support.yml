@@ -1,0 +1,70 @@
+name: "🚨 Incident / operational support"
+description: "Report a production/support incident or operational issue."
+title: "[Incident]: "
+labels: ["incident", "ops", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this for operational incidents. If your org has an internal incident process, follow it first.
+        **Do not include secrets or customer PII.**
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Incident severity
+      options:
+        - "SEV-1 (major outage / critical business impact)"
+        - "SEV-2 (partial outage / high impact)"
+        - "SEV-3 (degraded performance / medium impact)"
+        - "SEV-4 (minor / informational)"
+    validations:
+      required: true
+
+  - type: input
+    id: start_time
+    attributes:
+      label: Start time (approx)
+      placeholder: "YYYY-MM-DD HH:MM (timezone)"
+    validations:
+      required: false
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Customer/user impact
+      placeholder: "Who is impacted and how?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: symptoms
+    attributes:
+      label: Symptoms / error messages
+      placeholder: "What are you seeing? Any error codes, logs (redacted)?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: mitigation
+    attributes:
+      label: Mitigation attempted / workaround
+      placeholder: "What has been tried? Any rollback performed?"
+    validations:
+      required: false
+
+  - type: textarea
+    id: links
+    attributes:
+      label: Links (dashboards, alerts, runbooks)
+      placeholder: "Paste links to monitoring, runbooks, change records..."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I have not included secrets, credentials, or sensitive customer data.
+          required: true
