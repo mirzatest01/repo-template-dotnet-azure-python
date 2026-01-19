@@ -1,0 +1,6 @@
+{
+  "name": ".NET CI (Org Standard)",
+  "description": "Build and test a .NET solution on PRs and pushes.",
+  "iconName": "dotnet",
+  "categories": ["CI", "Dotnet"]
+}
